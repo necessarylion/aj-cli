@@ -6,6 +6,7 @@
     "aj": "src/index.ts"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -13,7 +14,10 @@
   },
   "scripts": {
     "build": "bun build src/index.ts --compile --outfile bin/aj",
-    "link": "bun link"
+    "link": "bun link",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "format": "biome format --write src"
   },
   "dependencies": {
     "chalk": "^5.6.2",

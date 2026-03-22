@@ -1,20 +1,20 @@
 #!/usr/bin/env bun
 
 import { Command } from "commander";
-import { registerTranslate } from "./commands/translate";
-import { registerKillport } from "./commands/killport";
 import { registerCommitMsg } from "./commands/commit-msg";
-import { registerPortwho } from "./commands/portwho";
-import { registerDocme } from "./commands/docme";
-import { registerRewrite } from "./commands/rewrite";
 import { registerCron } from "./commands/cron";
+import { registerDocme } from "./commands/docme";
+import { registerKillport } from "./commands/killport";
+import { registerPortwho } from "./commands/portwho";
+import { registerRewrite } from "./commands/rewrite";
+import { registerTranslate } from "./commands/translate";
 
 const program = new Command();
 
 program
-  .name("aj")
-  .description("A simple CLI built with Bun and Commander")
-  .version("0.0.1");
+	.name("aj")
+	.description("A simple CLI built with Bun and Commander")
+	.version("0.0.1");
 
 registerTranslate(program);
 registerKillport(program);
