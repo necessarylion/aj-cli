@@ -41,14 +41,29 @@ export function registerCommitMsg(program: Command) {
 
       console.log(chalk.green(message));
       console.log();
+      console.log("  y) Yes, commit with this message");
+      console.log("  n) No, cancel");
+      console.log("  c) Custom, enter your own message");
+      console.log();
 
-      const answer = await ask("Do you want to commit? (y/n) ");
-      if (answer !== "y" && answer !== "yes") {
+      const answer = await ask("Your choice (y/n/c) ");
+
+      let finalMessage: string;
+      if (answer === "y" || answer === "yes") {
+        finalMessage = message;
+      } else if (answer === "c" || answer === "custom") {
+        const custom = await ask("Enter commit message: ");
+        if (!custom) {
+          console.log(chalk.yellow("Commit cancelled."));
+          return;
+        }
+        finalMessage = custom;
+      } else {
         console.log(chalk.yellow("Commit cancelled."));
         return;
       }
 
-      const commit = Bun.spawn(["git", "commit", "-m", message], { stdout: "inherit", stderr: "inherit" });
+      const commit = Bun.spawn(["git", "commit", "-m", finalMessage], { stdout: "inherit", stderr: "inherit" });
       const commitCode = await commit.exited;
       process.exit(commitCode);
     });

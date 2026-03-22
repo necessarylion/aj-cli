@@ -18,13 +18,30 @@ Translate text to English using Claude.
 aj translate "こんにちは世界"
 ```
 
+### `aj rewrite <text> [tone]`
+
+Rewrite text in a given tone using Claude. Supports `fri` (friendly) or `pro` (professional, default).
+
+```bash
+aj rewrite "fix the bug asap" fri
+aj rewrite "fix the bug asap" pro
+```
+
 ### `aj commit-msg`
 
-Generate a commit message from staged changes using Claude. Prompts for confirmation before committing.
+Generate a commit message from staged changes using Claude. Prompts with three options: commit, cancel, or enter a custom message.
 
 ```bash
 git add .
 aj commit-msg
+```
+
+### `aj docme <file>`
+
+Add documentation comments (JSDoc, docstrings, etc.) to a file using Claude.
+
+```bash
+aj docme src/utils.ts
 ```
 
 ### `aj killport <port>`
@@ -33,6 +50,14 @@ Kill the process running on a given port. Works on macOS and Linux.
 
 ```bash
 aj killport 3000
+```
+
+### `aj portwho <port>`
+
+Show detailed info about the process running on a given port.
+
+```bash
+aj portwho 3000
 ```
 
 ## Development
