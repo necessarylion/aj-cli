@@ -7,6 +7,7 @@ import { registerCommitMsg } from "./commands/commit-msg";
 import { registerPortwho } from "./commands/portwho";
 import { registerDocme } from "./commands/docme";
 import { registerRewrite } from "./commands/rewrite";
+import { registerCron } from "./commands/cron";
 
 const program = new Command();
 
@@ -21,5 +22,6 @@ registerCommitMsg(program);
 registerPortwho(program);
 registerDocme(program);
 registerRewrite(program);
+registerCron(program);
 
 program.parse();
