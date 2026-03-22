@@ -44,6 +44,23 @@ Add documentation comments (JSDoc, docstrings, etc.) to a file using Claude.
 aj docme src/utils.ts
 ```
 
+### `aj cron <text>`
+
+Generate a cron expression from natural language using Claude.
+
+```bash
+aj cron "every day at 3am"
+aj cron "every monday at noon"
+```
+
+### `aj ask-command <question>`
+
+Get the terminal command for a given task using Claude.
+
+```bash
+aj ask-command "How to build docker image?"
+```
+
 ### `aj killport <port>`
 
 Kill the process running on a given port. Works on macOS and Linux.
