@@ -27,7 +27,7 @@ export function registerCommitMsg(program: Command) {
       }
 
       const proc = Bun.spawn(
-        ["claude", "-p", `Based on the following git diff, generate a concise commit message. Follow conventional commits format (e.g. feat:, fix:, refactor:). Respond with only the commit message and nothing else:\n\n${diffOutput}`],
+        ["claude", "-p", "--no-session-persistence", `Based on the following git diff, generate a concise commit message. Follow conventional commits format (e.g. feat:, fix:, refactor:). Respond with only the commit message and nothing else:\n\n${diffOutput}`],
         { stdout: "pipe", stderr: "inherit" }
       );
       const output = await new Response(proc.stdout).text();

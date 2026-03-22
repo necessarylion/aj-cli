@@ -4,6 +4,9 @@ import { Command } from "commander";
 import { registerTranslate } from "./commands/translate";
 import { registerKillport } from "./commands/killport";
 import { registerCommitMsg } from "./commands/commit-msg";
+import { registerPortwho } from "./commands/portwho";
+import { registerDocme } from "./commands/docme";
+import { registerRewrite } from "./commands/rewrite";
 
 const program = new Command();
 
@@ -15,5 +18,8 @@ program
 registerTranslate(program);
 registerKillport(program);
 registerCommitMsg(program);
+registerPortwho(program);
+registerDocme(program);
+registerRewrite(program);
 
 program.parse();

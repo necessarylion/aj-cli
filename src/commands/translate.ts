@@ -8,7 +8,7 @@ export function registerTranslate(program: Command) {
     .argument("<text>", "text to translate")
     .action(async (text: string) => {
       const proc = Bun.spawn(
-        ["claude", "-p", `Translate the following text to English. Respond with only the translated text and nothing else:\n\n${text}`],
+        ["claude", "-p", "--no-session-persistence", `Translate the following text to English. Respond with only the translated text and nothing else:\n\n${text}`],
         { stdout: "pipe", stderr: "inherit" }
       );
       const output = await new Response(proc.stdout).text();
