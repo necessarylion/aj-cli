@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 
 import { Command } from "commander";
+import { registerAskCommand } from "./commands/ask-command";
 import { registerCommitMsg } from "./commands/commit-msg";
 import { registerCron } from "./commands/cron";
 import { registerDocme } from "./commands/docme";
@@ -23,5 +24,6 @@ registerPortwho(program);
 registerDocme(program);
 registerRewrite(program);
 registerCron(program);
+registerAskCommand(program);
 
 program.parse();
